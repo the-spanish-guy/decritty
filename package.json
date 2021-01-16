@@ -1,0 +1,13 @@
+{
+  "name": "nocritty",
+  "version": "1.0.0",
+  "description": "nao sei ainda",
+  "main": "index.js",
+  "repository": "ainda n tenho",
+  "author": "Luis Enrique MP",
+  "license": "MIT",
+  "dependencies": {
+    "argparse": "^2.0.1",
+    "js-yaml": "^4.0.0"
+  }
+}
