@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const yaml = require("js-yaml");
+const emoji = require("emojic")
 
 const constants = require("../constants");
 const initialConfig = require("./initialConfig");
@@ -53,8 +54,10 @@ const init = async (args) => {
     file.window.padding.y =
       padding === undefined ? file.window.padding.y : padding[1];
     writeFile(file);
+    process.stdout.setEncoding('utf-8').write("Done! ✨" + "\n")
+    process.stdout.write("if there are no changes, try restarting the terminal" + "\n")
   } catch (err) {
-    console.log(err);
+    process.stderr.write(error)
   }
 };
 

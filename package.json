@@ -1,9 +1,9 @@
 {
   "name": "nocritty",
   "version": "1.0.0",
-  "description": "nao sei ainda",
-  "main": "index.js",
-  "repository": "ainda n tenho",
+  "description": "CLI program to change the alacritty configuration",
+  "main": "src/index.js",
+  "repository": "https://github.com/the-spanish-guy/decritty",
   "author": "Luis Enrique MP",
   "license": "MIT",
   "dependencies": {
