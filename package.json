@@ -1,13 +1,22 @@
 {
-  "name": "nocritty",
-  "version": "1.0.0",
-  "description": "CLI program to change the alacritty configuration",
-  "main": "src/index.js",
-  "repository": "https://github.com/the-spanish-guy/decritty",
-  "author": "Luis Enrique MP",
-  "license": "MIT",
-  "dependencies": {
-    "argparse": "^2.0.1",
-    "js-yaml": "^4.0.0"
-  }
+	"name": "decritty",
+	"version": "1.0.0",
+	"description": "CLI program to change the alacritty configuration",
+	"bin": "./src/index.js",
+	"main": "src/index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/the-spanish-guy/decritty.git"
+	},
+	"homepage": "https://github.com/the-spanish-guy/decritty#README",
+	"author": {
+		"name": "Luis Enrique MP",
+		"email": "luyo.lemp@gmail.com",
+		"url": "https://github.com/the-spanish-guy/"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"argparse": "^2.0.1",
+		"js-yaml": "^4.0.0"
+	}
 }
