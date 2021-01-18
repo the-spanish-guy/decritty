@@ -61,28 +61,26 @@ const usingConfigOfUser = () => {
 
 const createFolderIfNotExists = () => {
   if (fs.existsSync(BKP_FOLDER))
-    return process.stdout.write(
+    return console.log(
       `rename the existing backup folder and try again ${'\n'}`
     )
   if (fs.existsSync(DEFAULT_FOLDER)) {
     fs.renameSync(DEFAULT_FOLDER, BKP_FOLDER)
-    process.stdout.write(
-      `the backup folder was created at: ${BKP_FOLDER} ${'\n'}`
-    )
+    console.log(`the backup folder was created at: ${BKP_FOLDER} ${'\n'}`)
     usingConfigOfUser()
-    return process.stdout.write('Done!' + '\n')
+    return console.log('Done!' + '\n')
   }
 
   fs.mkdirSync(DEFAULT_FOLDER, { recursive: true })
   createDefaultTemplate()
-  process.stdout.write('Done!' + '\n')
+  console.log('Done!' + '\n')
 }
 
 const defaultConfigs = () => {
   try {
     return createFolderIfNotExists()
   } catch (error) {
-    process.stderr(error)
+    console.error(error)
   }
 }
 

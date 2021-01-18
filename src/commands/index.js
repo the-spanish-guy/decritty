@@ -52,12 +52,10 @@ const init = async (args) => {
     file.window.padding.y =
       padding === undefined ? file.window.padding.y : padding[1]
     writeFile(file)
-    process.stdout.setEncoding('utf-8').write('Done! ✨' + '\n')
-    process.stdout.write(
-      'if there are no changes, try restarting the terminal' + '\n'
-    )
+    console.log('Done! ✨' + '\n')
+    console.log('if there are no changes, try restarting the terminal' + '\n')
   } catch (err) {
-    process.stderr.write(err)
+    console.error(err)
   }
 }
 
