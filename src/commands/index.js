@@ -23,7 +23,7 @@ const writeFile = (file) => {
 
 /**
  *
- * @param {*} args Object
+ * @param {Object} args
  */
 const init = async (args) => {
   const { opacity, padding, theme, font, size, initial } = args
