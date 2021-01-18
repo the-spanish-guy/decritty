@@ -2,7 +2,9 @@
 	"name": "decritty",
 	"version": "1.0.0",
 	"description": "CLI program to change the alacritty configuration",
-	"bin": "./src/index.js",
+	"bin": {
+		"decritty": "./bin/decritty.js"
+	},
 	"main": "src/index.js",
 	"repository": {
 		"type": "git",
@@ -18,5 +20,19 @@
 	"dependencies": {
 		"argparse": "^2.0.1",
 		"js-yaml": "^4.0.0"
-	}
+	},
+	"devDependencies": {
+		"eslint": "^7.12.1",
+		"eslint-config-prettier": "^7.2.0",
+		"eslint-config-standard": "^16.0.2",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^4.2.1",
+		"prettier": "^2.2.1"
+	},
+	"keywords": [
+		"alacritty",
+		"theme",
+		"terminal"
+	]
 }
