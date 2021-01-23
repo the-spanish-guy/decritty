@@ -1,6 +1,6 @@
 {
 	"name": "decritty",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "CLI program to change the alacritty configuration",
 	"bin": {
 		"decritty": "./bin/decritty.js"
@@ -34,6 +34,16 @@
 	"keywords": [
 		"alacritty",
 		"theme",
-		"terminal"
+		"terminal",
+		"cli",
+		"alacritty-themes",
+		"alacritty-config",
+		"alacritty-themes-changer",
+		"customization",
+		"command-line",
+		"shell",
+		"console",
+		"style",
+		"styles"
 	]
 }

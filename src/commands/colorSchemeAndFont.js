@@ -2,31 +2,33 @@ const fs = require('fs')
 const yaml = require('js-yaml')
 const constants = require('../constants/index')
 const chalk = require('chalk')
+const { FONT_FILE, DEFAULT_THEME_FOLDER, DEFAULT_SETTINGS_FOLDER } = constants
+
+const writeFile = (file) => {
+  fs.writeFile(
+    `${DEFAULT_SETTINGS_FOLDER}/${FONT_FILE}`,
+    yaml.dump(file),
+    (err) => {
+      if (err) {
+        throw Error(chalk.red('an error occurred while trying to save changes'))
+      }
+    }
+  )
+}
 
 const openFontFile = (name) => {
-  let fontName = ''
-  const { fonts } = yaml.load(
-    fs.readFileSync(`${constants.DEFAULT_SETTINGS_FOLDER}/fonts.yml`, {
+  const file = yaml.load(
+    fs.readFileSync(`${DEFAULT_SETTINGS_FOLDER}/fonts.yml`, {
       encoding: 'utf-8',
       flag: 'r'
     })
   )
 
-  if (!Object.prototype.hasOwnProperty.call(fonts, name)) {
-    throw Error(
-      chalk.red(`The font ${chalk.hex('#c03546').bold(name)} was not found`)
-    )
-  }
-
-  for (const f in fonts) {
-    if (f === name) fontName = fonts[f]
-  }
-
-  return fontName
+  return file
 }
 
 const openThemeFile = (fileName) => {
-  const path = `${constants.DEFAULT_THEME_FOLDER}/${fileName}.yml`
+  const path = `${DEFAULT_THEME_FOLDER}/${fileName}.yml`
 
   if (!fs.existsSync(path)) {
     throw Error(
@@ -45,8 +47,8 @@ const openThemeFile = (fileName) => {
   return theme
 }
 
-const init = async (file, args) => {
-  const { theme, font: newFont } = args
+const init = async (args) => {
+  const { theme, font: newFont, addFont } = args
 
   let newColors
   if (theme) {
@@ -54,13 +56,31 @@ const init = async (file, args) => {
     newColors = colors.colors
   }
 
-  let f = ''
-  if (newFont) {
-    const nFont = openFontFile(newFont)
-    f = nFont
+  let fn = ''
+  if (newFont || addFont) {
+    let file = openFontFile()
+
+    if (addFont) {
+      const nf = Object.fromEntries([addFont])
+      file = { fonts: { ...file.fonts, ...nf } }
+      writeFile(file)
+    }
+
+    if (newFont) {
+      if (!Object.prototype.hasOwnProperty.call(file.fonts, newFont)) {
+        throw Error(
+          chalk.red(
+            `The font ${chalk.hex('#c03546').bold(newFont)} was not found`
+          )
+        )
+      }
+      for (const f in file.fonts) {
+        if (f === newFont) fn = file.fonts[f]
+      }
+    }
   }
 
-  return { newColors, f }
+  return { newColors, fn }
 }
 
 module.exports = init

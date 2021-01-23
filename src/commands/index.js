@@ -20,7 +20,15 @@ const writeFile = (file) => {
  * @param {Object} args
  */
 const init = async (args) => {
-  const { opacity, padding, theme, font, size, initial } = args
+  const {
+    opacity,
+    padding,
+    theme,
+    font,
+    size,
+    initial,
+    add_font: addFont
+  } = args
 
   if (initial) return initialConfig()
 
@@ -32,9 +40,13 @@ const init = async (args) => {
       })
     )
 
-    if (theme || font) {
-      const { newColors, f } = await colorSchemeAndFont(file, { font, theme })
-      if (font) file.font.normal.family = f
+    if (theme || font || addFont) {
+      const { newColors, fn } = await colorSchemeAndFont({
+        font,
+        theme,
+        addFont
+      })
+      if (font) file.font.normal.family = fn
       if (theme) file.colors = newColors
     }
 

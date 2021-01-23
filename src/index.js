@@ -27,5 +27,10 @@ parser.add_argument('-s', '--size', {
   help: 'Set a size to family font',
   type: 'int'
 })
+parser.add_argument('-add-font', '--add-font', {
+  help: 'Set a new font',
+  nargs: 2,
+  metavar: ['Alias', 'Font name']
+})
 
 Init(parser.parse_args())

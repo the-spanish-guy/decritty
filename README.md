@@ -17,79 +17,97 @@
 
 ---
 
+<a id="installation"></a>
 ## :wrench: Installation
 
 - npm
 
   ```shell
   npm i -g decritty
-  ```
+	```
 
+<a id="usage"></a>
 ## :dark_sunglasses: Usage
 
-- Initial configs
+### Initial configs
+Run the command below to create the initial settings<br>
+> If the alacritty folder is already exists, it will be backup and the folder structure will be set up to work correctly
 
-  > Run the command below to create the initial settings<br>
-  > If the alacritty folder is already exists, it will be back-up and the folder structure will be set up to work correctly
+```shell
+decritty -i
+```
 
-  ```shell
-  decritty -i
-  ```
+### Opacity
+This argument receive a int | float
 
-- Opacity
+```shell
+decritty -o 0.6
+```
 
-  > This argument receive a int | float
+### Padding
+This argument receives 2 parameters x, y of type int<br>
+  X and Y need not be exactly the same
 
-  ```shell
-  decritty -o 0.6
-  ```
+```shell
+decritty -p 2 2
+```
 
-- Padding
+```shell
+decritty -p 4 8
+```
 
-  > This argument receives 2 parameters x, y of type int<br>
-  > X and Y need not be exactly the same
+### Font
+This argument receives the alias that is in the font file<br>
+> You may be found the file on `~/.config/alacritty/settings/fonts.yml`<br>
+> [click here](#fonts) to see structure of `fonts` file
 
-  ```shell
-  decritty -p 2 2
-  ```
+```shell
+decritty -f FiraCode
+```
 
-  ```shell
-  decritty -p 4 8
-  ```
+### Add new font
+This argument receives two parameters `Alias: 'Font Name'`<br>
+`Alias` is the alias of the font name <br>
+`'Font Name'` is the original font name <br>
+> You may be found the file on `~/.config/alacritty/settings/fonts.yml`<br>
 
-- Font
+```shell
+decritty -add-font FiraCode 'Fira Code Nerd Font'
+```
 
-  > This argument receives the alias that is in the font file<br>
-  > You may be found the file on `~/.config/alacritty/settings/fonts.yml`<br>
-	> [click here](#fonts) to see structure of `fonts` file
+### Font Size
+This argument receive a int
 
-  ```shell
-  decritty -f FiraCode
-  ```
+```shell
+decritty -s 18
+```
 
-- Font Size
+### Themes
+This argument receive the name of theme<br>
+> You may be found the file folder on `~/.config/alacritty/settings/themes`<br>
+> [click here](#folder-structure) to see folder structure
 
-  > This argument receive a int
+```shell
+decritty -t AyuDark
+```
 
-  ```shell
-  decritty -s 18
-  ```
+![imagem](./.screenshots/temas.gif)
 
-- Themes
+If you wish, you can match all the arguments
 
-  > This argument receive the name of theme<br>
-  > You may be found the file folder on ~/.config/alacritty/settings/themes<br>
-	> [click here](#folder-structure) to see folder structure
+![imagem](./.screenshots/argumentos.gif)
 
-  ```shell
-  decritty -t AyuDark
-  ```
 
-  ![imagem](./.screenshots/temas.gif)
+### Add Themes
+To add a new theme just move it to `~/.config/alacritty/settings/themes` and then run
 
-- If you wish, you can match all the arguments
-  ![imagem](./.screenshots/argumentos.gif)
+```shell
+decritty -t YourTheme
+```
 
+
+
+<a id="folder-structure"></a>
 ## :file_folder: Folder Structure
 
 ```
@@ -107,6 +125,8 @@ alacritty
 │       │   ...
 ```
 
+
+<a id="fonts"></a>
 ## :pencil: Fonts
 
 > `fonts.yml`
@@ -116,6 +136,11 @@ fonts:
   Ubuntu: UbuntuMono Nerd Font # alias: font name
   FiraCode: Fira Code Nerd Font
 ```
+
+
+
+##  :writing_hand: License
+This project is under the [MIT LICENSE](https://en.wikipedia.org/wiki/MIT_License). See [LICENSE](https://github.com/the-spanish-guy/decritty/blob/main/LICENSE) for more information.
 
 ---
 
