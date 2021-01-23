@@ -1,5 +1,6 @@
 const fs = require('fs')
 const yaml = require('js-yaml')
+const chalk = require('chalk')
 
 const constants = require('../constants')
 const initialConfig = require('./initialConfig')
@@ -7,18 +8,11 @@ const colorSchemeAndFont = require('./colorSchemeAndFont')
 const { DEFAULT_FOLDER, DEFAULT_FILE } = constants
 
 const writeFile = (file) => {
-  try {
-    fs.writeFile(
-      `${DEFAULT_FOLDER}/${DEFAULT_FILE}`,
-      yaml.dump(file),
-      (err) => {
-        if (err)
-          throw new Error('an error occurred while trying to save changes')
-      }
-    )
-  } catch (err) {
-    console.log(err)
-  }
+  fs.writeFile(`${DEFAULT_FOLDER}/${DEFAULT_FILE}`, yaml.dump(file), (err) => {
+    if (err) {
+      throw Error(chalk.red('an error occurred while trying to save changes'))
+    }
+  })
 }
 
 /**
@@ -52,10 +46,14 @@ const init = async (args) => {
     file.window.padding.y =
       padding === undefined ? file.window.padding.y : padding[1]
     writeFile(file)
-    console.log('Done! ✨' + '\n')
-    console.log('if there are no changes, try restarting the terminal' + '\n')
+    console.log(chalk.green('Done!'), ' ✨' + '\n')
+    console.log(
+      chalk.hex('#f0f696')(
+        'if there are no changes, try restarting the terminal' + '\n'
+      )
+    )
   } catch (err) {
-    console.error(err)
+    console.error(err.message)
   }
 }
 

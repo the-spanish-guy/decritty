@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const chalk = require('chalk')
 
 const constants = require('../constants')
 // const fontTemplate = require("../templates/fonts");
@@ -18,9 +19,9 @@ const {
  * @param {String} localFolder
  */
 const copyFolderRecursive = (files, localFolder, destinationFolder) => {
-  files.map((file) => {
+  files.map((file) =>
     fs.copyFileSync(`${localFolder}/${file}`, `${destinationFolder}/${file}`)
-  })
+  )
 }
 
 const copyTemplateFolders = () => {
@@ -45,18 +46,27 @@ const copyTemplateFolders = () => {
 }
 
 const createFolderIfNotExists = () => {
-  if (fs.existsSync(BKP_FOLDER))
-    return console.log(
-      `rename the existing backup folder and try again ${'\n'}`
+  if (fs.existsSync(BKP_FOLDER)) {
+    console.log(
+      chalk
+        .hex('#ff1f5a')
+        .bold(`Rename the existing backup folder and try again ${'\n'}`)
     )
+    return
+  }
   if (fs.existsSync(DEFAULT_FOLDER)) {
     fs.renameSync(DEFAULT_FOLDER, BKP_FOLDER)
-    console.log(`the backup folder was created at: ${BKP_FOLDER} ${'\n'}`)
+    console.log(
+      `the backup folder was created at: ${chalk
+        .hex('#49beb7')
+        .bold(BKP_FOLDER)} ${'\n'}`
+    )
   }
 
   fs.mkdirSync(DEFAULT_FOLDER, { recursive: true })
   copyTemplateFolders()
-  console.log('Done!' + '\n')
+
+  console.log(chalk.hex('#2cb978').bold('Done!' + '\n'))
 }
 
 const defaultConfigs = () => {

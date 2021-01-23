@@ -10,7 +10,7 @@
 		"type": "git",
 		"url": "git+https://github.com/the-spanish-guy/decritty.git"
 	},
-	"homepage": "https://github.com/the-spanish-guy/decritty#README",
+	"homepage": "https://github.com/the-spanish-guy/decritty#readme",
 	"author": {
 		"name": "Luis Enrique MP",
 		"email": "luyo.lemp@gmail.com",
@@ -19,6 +19,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"argparse": "^2.0.1",
+		"chalk": "^4.1.0",
 		"js-yaml": "^4.0.0"
 	},
 	"devDependencies": {

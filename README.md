@@ -10,10 +10,10 @@
 
 **Table of Contents**
 
-- [:wrench: Installation](#:wrench:-installation)
-- [:dark_sunglasses: Usage](#:dark_sunglasses:-usage)
-- [:file_folder: Folder Structure](#:file_folder:-folder-structure)
-- [:pencil: Fonts](#:pencil:-fonts)
+- [:wrench: Installation](#installation)
+- [:dark_sunglasses: Usage](#usage)
+- [:file_folder: Folder Structure](#folder-structure)
+- [:pencil: Fonts](#fonts)
 
 ---
 
@@ -60,7 +60,8 @@
 - Font
 
   > This argument receives the alias that is in the font file<br>
-  > You may be found the file on `~/.config/alacritty/settings/fonts.yml`<br> >[click here](#:pencil:-fonts) to see structure of `fonts` file
+  > You may be found the file on `~/.config/alacritty/settings/fonts.yml`<br>
+	> [click here](#fonts) to see structure of `fonts` file
 
   ```shell
   decritty -f FiraCode
@@ -77,7 +78,8 @@
 - Themes
 
   > This argument receive the name of theme<br>
-  > You may be found the file folder on ~/.config/alacritty/settings/themes<br> >[click here](#:file_folder:-folder-structure) to see folder structure
+  > You may be found the file folder on ~/.config/alacritty/settings/themes<br>
+	> [click here](#folder-structure) to see folder structure
 
   ```shell
   decritty -t AyuDark

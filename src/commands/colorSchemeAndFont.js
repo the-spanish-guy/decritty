@@ -1,6 +1,7 @@
 const fs = require('fs')
 const yaml = require('js-yaml')
 const constants = require('../constants/index')
+const chalk = require('chalk')
 
 const openFontFile = (name) => {
   let fontName = ''
@@ -10,6 +11,13 @@ const openFontFile = (name) => {
       flag: 'r'
     })
   )
+
+  if (!Object.prototype.hasOwnProperty.call(fonts, name)) {
+    throw Error(
+      chalk.red(`The font ${chalk.hex('#c03546').bold(name)} was not found`)
+    )
+  }
+
   for (const f in fonts) {
     if (f === name) fontName = fonts[f]
   }
@@ -17,9 +25,19 @@ const openFontFile = (name) => {
   return fontName
 }
 
-const openThemeFile = (file) => {
+const openThemeFile = (fileName) => {
+  const path = `${constants.DEFAULT_THEME_FOLDER}/${fileName}.yml`
+
+  if (!fs.existsSync(path)) {
+    throw Error(
+      chalk.red(
+        `The theme ${chalk.hex('#c03546').bold(fileName)} was not found`
+      )
+    )
+  }
+
   const theme = yaml.load(
-    fs.readFileSync(`${constants.DEFAULT_THEME_FOLDER}/${file}.yml`, {
+    fs.readFileSync(path, {
       encoding: 'utf-8',
       flag: 'r'
     })
