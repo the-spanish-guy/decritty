@@ -32,5 +32,9 @@ parser.add_argument('-add-font', '--add-font', {
   nargs: 2,
   metavar: ['Alias', 'Font name']
 })
+parser.add_argument('-l', '--list-themes', {
+  help: 'List all themes',
+  action: 'store_true'
+})
 
 Init(parser.parse_args())
