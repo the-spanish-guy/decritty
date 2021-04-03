@@ -105,6 +105,12 @@ To add a new theme just move it to `~/.config/alacritty/settings/themes` and the
 decritty -t YourTheme
 ```
 
+### List Themes
+To list all themes
+```shell
+decritty -l
+```
+
 
 
 <a id="folder-structure"></a>
