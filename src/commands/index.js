@@ -5,6 +5,7 @@ const chalk = require('chalk')
 const constants = require('../constants')
 const initialConfig = require('./initialConfig')
 const colorSchemeAndFont = require('./colorSchemeAndFont')
+const listAllThemes = require('./listAllThemes')
 const { DEFAULT_FOLDER, DEFAULT_FILE } = constants
 
 const writeFile = (file) => {
@@ -27,10 +28,13 @@ const init = async (args) => {
     font,
     size,
     initial,
-    add_font: addFont
+    add_font: addFont,
+    list_themes: listThemes
   } = args
 
   if (initial) return initialConfig()
+
+  if (listThemes) return await listAllThemes()
 
   try {
     const file = yaml.load(
