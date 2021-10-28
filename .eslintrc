@@ -1,22 +1,20 @@
 {
     "env": {
-        "browser": true,
-        "commonjs": true,
-        "es2021": true
+      "browser": true,
+      "es2021": true,
+      "node": true,
+      "jest": true
     },
-    "extends": [
-        "standard",
-        "plugin:@typescript-eslint/recommended"
-    ],
+    "extends": ["standard", "plugin:@typescript-eslint/recommended"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
+      "ecmaVersion": 12,
+      "sourceType": "module"
     },
     "plugins": ["@typescript-eslint"],
     "rules": {
-        "space-before-function-paren": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/explicit-module-boundary-types": "off"
+      "space-before-function-paren": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off"
     }
-}
+  }
