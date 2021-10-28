@@ -20,7 +20,8 @@
   "scripts": {
     "build": "rm -rf ./lib && tsc && cp ./bin ./lib -r",
     "watch": " tsc -w",
-    "lint": "eslint 'src/*/**/*.{ts}' --quite --fix"
+    "lint": "eslint  --quiet --fix",
+    "format": "prettier --write '**/*.{js, ts, json}'"
   },
   "dependencies": {
     "argparse": "^2.0.1",
