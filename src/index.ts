@@ -1,6 +1,6 @@
-const { ArgumentParser } = require('argparse')
-const { version } = require('../package.json')
-const Init = require('./commands/index')
+import { ArgumentParser } from 'argparse'
+import { version } from '../package.json'
+import InitCommands from './commands/index'
 
 const parser = new ArgumentParser({
   description: 'CLI program to change the alacritty configuration'
@@ -13,7 +13,7 @@ parser.add_argument('-i', '--initial', {
 })
 parser.add_argument('-o', '--opacity', {
   help: 'Set opacity',
-  type: (n) => Number(n)
+  type: (n: number | string) => Number(n)
 })
 parser.add_argument('-p', '--padding', {
   help: 'Set a padding',
@@ -37,4 +37,6 @@ parser.add_argument('-l', '--list-themes', {
   action: 'store_true'
 })
 
-Init(parser.parse_args())
+/* parser.parse_args() */
+
+InitCommands(parser.parse_args())
