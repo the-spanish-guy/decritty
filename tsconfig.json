@@ -5,13 +5,17 @@
     "outDir": "lib",
     "target": "ES5",
     "noEmitOnError": true,
-"noImplicitAny": true,
-"resolveJsonModule": true,
-"removeComments": true,
-"rootDir": ".",
-"strictNullChecks": true,
-"experimentalDecorators": true,
-"moduleResolution": "node"
+    "noImplicitAny": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "rootDir": ".",
+    "strictNullChecks": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["src/*", "src/**/*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
