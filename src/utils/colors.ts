@@ -11,18 +11,22 @@ const red = getColor(31)
 const blue = getColor(34)
 const cyan = getColor(36)
 const green = getColor(32)
-const lightGreen = getColor(92)
-const lightCyan = getColor(96)
+const magenta = getColor(95)
 const lightRed = getColor(91)
 const lightBlue = getColor(96)
+const lightCyan = getColor(96)
+const lightGreen = getColor(92)
+const lightMagenta = getColor(95)
 
 export {
   red,
   blue,
   cyan,
   green,
-  lightGreen,
-  lightCyan,
+  magenta,
   lightRed,
-  lightBlue
+  lightBlue,
+  lightCyan,
+  lightGreen,
+  lightMagenta
 }
