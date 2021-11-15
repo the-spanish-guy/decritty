@@ -1,6 +1,16 @@
 import * as Color from './colors'
 
-type TypeColor = 'red' | 'blue' | 'cyan' | 'green' | 'lightGreen' | 'lightCyan' | 'lightRed' | 'lightBlue' | 'magenta' | 'lightMagenta'
+type TypeColor =
+  | 'red'
+  | 'blue'
+  | 'cyan'
+  | 'green'
+  | 'lightGreen'
+  | 'lightCyan'
+  | 'lightRed'
+  | 'lightBlue'
+  | 'magenta'
+  | 'lightMagenta'
 export const printMessage = (color: TypeColor, msg: string): string | void => {
   const colors: Record<string, string> = {
     red: Color.red,

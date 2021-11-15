@@ -22,8 +22,7 @@ export default class ThemesServices {
     printMessage(
       'cyan',
       'To add a new theme, copy to ~/.config/alacritty/settings/themes/ or open a PR in github' +
-          '\n'
-
+        '\n'
     )
     printMessage('lightMagenta', themes.join(', '))
   }

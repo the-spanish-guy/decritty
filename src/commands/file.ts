@@ -12,7 +12,8 @@ export default class File {
     readFileSync(`${DEFAULT_FOLDER}/${DEFAULT_FILE}`, {
       encoding: 'utf8',
       flag: 'r'
-    })) as FileType
+    })
+  ) as FileType
 
   public static writeFile = (file: any, path: string = DEFAULT_PATH) => {
     writeFile(path, dump(file), err => {
@@ -24,10 +25,12 @@ export default class File {
   }
 
   static openFile = (path: string) => {
-    return load(readFileSync(path, {
-      encoding: 'utf8',
-      flag: 'r'
-    }))
+    return load(
+      readFileSync(path, {
+        encoding: 'utf8',
+        flag: 'r'
+      })
+    )
   }
 
   static setOpacity = (opacity: number, file: FileType) => {

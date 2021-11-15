@@ -112,18 +112,28 @@ export type ColorsType = {
 }
 
 type CommandType = {
-program: string
-args: Array<string>
+  program: string
+  args: Array<string>
 }
 
 type BellType = {
-  animation?: 'Ease' | 'EaseOut' | 'EaseOutSine' | 'EaseOutQuad' | 'EaseOutCubic' | 'EaseOutQuart' | 'EaseOutQuint' | 'EaseOutExpo' | 'EaseOutCirc' | 'Linear'
+  animation?:
+    | 'Ease'
+    | 'EaseOut'
+    | 'EaseOutSine'
+    | 'EaseOutQuad'
+    | 'EaseOutCubic'
+    | 'EaseOutQuart'
+    | 'EaseOutQuint'
+    | 'EaseOutExpo'
+    | 'EaseOutCirc'
+    | 'Linear'
   duration?: number
   color?: string
   command?: CommandType
 }
 
-type BlockShape = 'Block'// ▇
+type BlockShape = 'Block' // ▇
 type UnderlineShape = 'Underline' // _
 type BeamShape = 'Beam' // |
 
@@ -153,7 +163,6 @@ type MouseType = {
     threshold: number
   }
   hide_when_typing?: boolean
-
 }
 
 export type FileType = {
@@ -163,7 +172,7 @@ export type FileType = {
   font: FontType
   draw_bold_text_with_bright_colors?: boolean
   colors?: ColorsType
-  bell?:BellType
+  bell?: BellType
   background_opacity?: number
   cursor?: CursorType
   shell?: ShellType
