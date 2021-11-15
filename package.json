@@ -17,19 +17,35 @@
     "url": "https://github.com/the-spanish-guy/"
   },
   "license": "MIT",
+  "scripts": {
+    "build": "rm -rf ./lib && tsc && cp ./bin ./lib -r && mkdir ./lib/src/templates/ -p && cp ./src/templates/* ./lib/src/templates/ -r",
+    "watch": " tsc -w",
+    "lint": "eslint  --quiet --fix",
+    "format": "prettier 'src/**/*.{js, ts, json}' 'src/**/*.{ts, json}' --write"
+  },
   "dependencies": {
-    "argparse": "^2.0.1",
-    "chalk": "^4.1.0",
+    "argparse": "2.0.1",
+    "chalk": "4.1.0",
     "js-yaml": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.12.1",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.22.1",
+    "@types/argparse": "^2.0.10",
+    "@types/js-yaml": "^4.0.4",
+    "@types/node": "^16.11.4",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "prettier": "^2.2.1"
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.1",
+    "prettier": "^2.4.1",
+    "prettier-eslint": "^13.0.0",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.4"
   },
   "keywords": [
     "alacritty",
@@ -47,4 +63,3 @@
     "styles"
   ]
 }
-
