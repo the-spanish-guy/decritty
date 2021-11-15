@@ -48,7 +48,7 @@ type ArgsTypes = {
   font: string
   size: number
   initial: string
-  add_font: string
+  add_font: Array<string>
   list_themes: boolean
 }
 const InitCommands = async (args: ArgsTypes) => {
@@ -63,20 +63,20 @@ const InitCommands = async (args: ArgsTypes) => {
     list_themes: listThemes
   } = args
 
-  const file: FileType = File.openFile
-
-  console.log(listThemes)
+  const file: FileType = File.getFile
 
   if (listThemes) return await Themes.listThemes()
 
-  console.log('passei do listThemes')
+  if (theme) Themes.setTheme(theme, file)
+
   if (initial) return DefaultConfigs.initialConfigs()
 
   if (opacity) File.setOpacity(opacity, file)
   if (padding) File.setPadding(padding, file)
   if (size) File.setFontSIze(size, file)
+  if (font) File.setFont(font, file)
+  if (addFont) File.setNewFont(addFont)
 
-  console.log(' n passo aqui ?')
   File.writeFile(file)
   successMessage()
 }
