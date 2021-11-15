@@ -1,6 +1,6 @@
 import { dump, load } from 'js-yaml'
 import { readFileSync, writeFile } from 'fs'
-import { FileType } from '../types/file'
+import { FileType, PaddingType } from '../types/file'
 import { DEFAULT_FOLDER, DEFAULT_FILE } from '../constants/index'
 import { printMessage } from '../utils/message'
 
@@ -23,5 +23,11 @@ export default class File {
   static setOpacity = (opacity: number, file: FileType) => {
     console.log(' opacity: ', opacity)
     file.background_opacity = opacity
+  }
+
+  static setPadding = (padding: PaddingType[], file: FileType) => {
+    const [x, y] = padding
+
+    file.window.padding = { x: Number(x), y: Number(y) }
   }
 }
