@@ -1,4 +1,5 @@
 background_opacity: 1
+
 colors:
   colors:
     primary:
@@ -22,12 +23,17 @@ colors:
       magenta: '#ff92d0'
       cyan: '#9aedfe'
       white: '#e6e6e6'
+
 font:
   normal:
     family: UbuntuMono Nerd Font
   size: 12
+
 window:
   padding:
     x: 2
     y: 2
   dynamic_padding: true
+
+env:
+  TERM: xterm-256color
