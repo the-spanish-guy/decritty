@@ -14,7 +14,8 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["src/*", "src/**/*"]
+      "@commands/*": ["./src/commands/*"],
+      "@constants/*": ["./src/constants/*"]
     }
   },
   "include": ["src/**/*"],

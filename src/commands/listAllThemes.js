@@ -5,11 +5,9 @@ const { DEFAULT_THEME_FOLDER } = constants
 
 const init = async () => {
   const themes = []
-  const allThemes = await fs.promises
-    .opendir(DEFAULT_THEME_FOLDER)
-    .catch((err) => {
-      throw err
-    })
+  const allThemes = await fs.promises.opendir(DEFAULT_THEME_FOLDER).catch(err => {
+    throw err
+  })
 
   for await (const theme of allThemes) {
     if (theme.isFile()) {

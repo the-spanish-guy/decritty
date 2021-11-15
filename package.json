@@ -18,18 +18,19 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./lib && tsc && cp ./bin ./lib -r",
+    "build": "rm -rf ./lib && tsc && cp ./bin ./lib -r && mkdir ./lib/src/templates/ -p && cp ./src/templates/* ./lib/src/templates/ -r",
     "watch": " tsc -w",
     "lint": "eslint  --quiet --fix",
-    "format": "prettier --write '**/*.{js, ts, json}'"
+    "format": "prettier 'src/**/*.{js, ts, json}' 'src/**/*.{ts, json}' --write"
   },
   "dependencies": {
-    "argparse": "^2.0.1",
-    "chalk": "^4.1.0",
+    "argparse": "2.0.1",
+    "chalk": "4.1.0",
     "js-yaml": "^4.0.0"
   },
   "devDependencies": {
     "@types/argparse": "^2.0.10",
+    "@types/js-yaml": "^4.0.4",
     "@types/node": "^16.11.4",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",

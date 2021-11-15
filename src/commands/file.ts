@@ -30,4 +30,8 @@ export default class File {
 
     file.window.padding = { x: Number(x), y: Number(y) }
   }
+
+  static setFontSIze = (size: number, file: FileType) => {
+    file.font.size = size
+  }
 }
