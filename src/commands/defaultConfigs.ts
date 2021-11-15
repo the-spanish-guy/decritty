@@ -1,6 +1,5 @@
-import { existsSync, renameSync, mkdirSync, copyFileSync, readdirSync } from 'fs'
-import { hex, rgb } from 'chalk'
 import { join } from 'path'
+import { existsSync, renameSync, mkdirSync, copyFileSync, readdirSync } from 'fs'
 
 import {
   BKP_FOLDER,
@@ -9,7 +8,6 @@ import {
   DEFAULT_SETTINGS_FOLDER,
   DEFAULT_THEME_FOLDER
 } from '../constants/index'
-import { cyan, red } from '../utils/colors'
 import { printMessage } from '../utils/message'
 
 export default class DefaultConfigs {
