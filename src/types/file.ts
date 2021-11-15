@@ -12,8 +12,8 @@ type AxesType = {
   y: number
 }
 
-type PositionType = AxesType
-type PaddingType = AxesType
+export type PositionType = AxesType
+export type PaddingType = AxesType
 
 type DecorationType = 'full' | 'none' | 'transparent' | 'buttonless'
 type StartupType = 'Windowed' | 'Maximized' | 'Fullscreen' | 'SimpleFullscreen'
@@ -21,16 +21,16 @@ type StartupType = 'Windowed' | 'Maximized' | 'Fullscreen' | 'SimpleFullscreen'
 type GtkThemeVariant = 'None' | 'light' | 'dark'
 
 type WindowType = {
-  dimensions: DimensionsType
-  position: PositionType
-  padding: PaddingType
-  dynamic_padding: boolean
-  decorations: DecorationType
-  opacity: number
-  startup_mode: StartupType
-  title: string
-  dynamic_title: boolean
-  gtk_theme_variant: GtkThemeVariant
+  dimensions?: DimensionsType
+  position?: PositionType
+  padding?: PaddingType
+  dynamic_padding?: boolean
+  decorations?: DecorationType
+  opacity?: number
+  startup_mode?: StartupType
+  title?: string
+  dynamic_title?: boolean
+  gtk_theme_variant?: GtkThemeVariant
 }
 
 type ScrollingType = {
@@ -44,14 +44,14 @@ type AttributesFontType = {
 }
 
 type FontType = {
-  normal: AttributesFontType
-  bold: AttributesFontType
-  italic: AttributesFontType
-  bold_italic: AttributesFontType
-  size: number
-  offset: AxesType
-  glyph_offset: AxesType
-  use_thin_strokes: boolean
+  normal?: AttributesFontType
+  bold?: AttributesFontType
+  italic?: AttributesFontType
+  bold_italic?: AttributesFontType
+  size?: number
+  offset?: AxesType
+  glyph_offset?: AxesType
+  use_thin_strokes?: boolean
 }
 
 type ColorsPrimaryType = {
@@ -158,9 +158,9 @@ type MouseType = {
 
 export type FileType = {
   env?: ENVType
-  window?: WindowType
+  window: WindowType
   scrolling?: ScrollingType
-  font?: FontType
+  font: FontType
   draw_bold_text_with_bright_colors?: boolean
   colors?: ColorsType
   bell?:BellType
