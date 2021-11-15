@@ -38,12 +38,12 @@ type ScrollingType = {
   multiplier: number
 }
 
-type AttributesFontType = {
+export type AttributesFontType = {
   family: string
   style: string
 }
 
-type FontType = {
+export type FontType = {
   normal?: AttributesFontType
   bold?: AttributesFontType
   italic?: AttributesFontType
