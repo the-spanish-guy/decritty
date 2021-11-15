@@ -1,6 +1,9 @@
 import { opendir } from 'fs/promises'
 import { printMessage } from '../utils/message'
 import { DEFAULT_THEME_FOLDER } from '../constants'
+import { FileType } from '../types/file'
+import File from './file'
+import { ColorsFileType } from '../types/colorsFile'
 
 export default class ThemesServices {
   static listThemes = async (): Promise<void> => {
@@ -23,5 +26,13 @@ export default class ThemesServices {
 
     )
     printMessage('lightMagenta', themes.join(', '))
+  }
+
+  static setTheme = (name: string, file: FileType) => {
+    const path = `${DEFAULT_THEME_FOLDER}/${name}.yml`
+
+    const customColors = File.openFile(path) as ColorsFileType
+
+    file.colors = { ...customColors.colors }
   }
 }
