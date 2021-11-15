@@ -1,7 +1,7 @@
 import * as Color from './colors'
 
 type TypeColor = 'red' | 'blue' | 'cyan' | 'green' | 'lightGreen' | 'lightCyan' | 'lightRed' | 'lightBlue' | 'magenta' | 'lightMagenta'
-export const printMessage = (color: TypeColor, msg: string) => {
+export const printMessage = (color: TypeColor, msg: string): string | void => {
   const colors: Record<string, string> = {
     red: Color.red,
     blue: Color.blue,
@@ -15,5 +15,11 @@ export const printMessage = (color: TypeColor, msg: string) => {
     lightMagenta: Color.lightMagenta
   }
 
-  console.log(colors[color], msg)
+  return console.log(colors[color], msg)
+}
+
+export const successMessage = () => {
+  printMessage('green', 'Done! ✨' + '\n')
+
+  printMessage('lightGreen', 'if there are no changes, try restarting the terminal' + '\n')
 }
