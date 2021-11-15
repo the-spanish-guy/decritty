@@ -1,6 +1,6 @@
 import { dump, load } from 'js-yaml'
 import { readFileSync, writeFile } from 'fs'
-import { FileType, PaddingType } from '../types/file'
+import { FileType, FontType, PaddingType } from '../types/file'
 import { DEFAULT_FOLDER, DEFAULT_FILE } from '../constants/index'
 import { printMessage } from '../utils/message'
 
@@ -33,5 +33,29 @@ export default class File {
 
   static setFontSIze = (size: number, file: FileType) => {
     file.font.size = size
+  }
+
+  static setFont = (font: string, file: FileType) => {
+    const fontProperties: FontType = file.font
+
+    file.font = {
+      ...fontProperties,
+      normal: {
+        family: font,
+        style: 'Regular'
+      },
+      bold: {
+        family: font,
+        style: 'Bold'
+      },
+      italic: {
+        family: font,
+        style: 'Italic'
+      },
+      bold_italic: {
+        family: font,
+        style: 'Bold Italic'
+      }
+    }
   }
 }
