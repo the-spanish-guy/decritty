@@ -97,7 +97,7 @@ type AttributesColorsType = {
   white: string
 }
 
-type ColorsType = {
+export type ColorsType = {
   primary?: ColorsPrimaryType
   cursor?: CursorColorType
   vi_mode_cursor?: CursorColorType
