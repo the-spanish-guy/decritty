@@ -1,0 +1,35 @@
+name: "🚀 release"
+
+on:
+  release:
+    types: [published]
+
+
+jobs:
+  release:
+    name: 🚀 release
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: 📚 checkout
+        uses: actions/checkout@v2.1.1
+      - name: 🟢 node -v ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install # will run `yarn install` command
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build # will run `yarn build` command
+      - name: 🚀 publish
+        run: npm publish --access public
+        working-directory: .lib
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
