@@ -8,14 +8,16 @@ import { FontFileType } from '../types/fontFile'
 const DEFAULT_PATH = `${DEFAULT_FOLDER}/${DEFAULT_FILE}`
 
 export default class File {
-  public static getFile: FileType = load(
-    readFileSync(`${DEFAULT_FOLDER}/${DEFAULT_FILE}`, {
-      encoding: 'utf8',
-      flag: 'r'
-    })
-  ) as FileType
+  public getFile(): FileType {
+    return load(
+      readFileSync(`${DEFAULT_FOLDER}/${DEFAULT_FILE}`, {
+        encoding: 'utf8',
+        flag: 'r'
+      })
+    ) as FileType
+  }
 
-  public static writeFile = (file: any, path: string = DEFAULT_PATH) => {
+  public static writeFile (file: any, path: string = DEFAULT_PATH) {
     writeFile(path, dump(file), err => {
       if (err) {
         const msg = 'an error occurred while trying to save changes'
@@ -24,7 +26,7 @@ export default class File {
     })
   }
 
-  static openFile = (path: string) => {
+  public static openFile(path: string) {
     return load(
       readFileSync(path, {
         encoding: 'utf8',
@@ -33,22 +35,21 @@ export default class File {
     )
   }
 
-  static setOpacity = (opacity: number, file: FileType) => {
-    console.log(' opacity: ', opacity)
+  public setOpacity(opacity: number, file: FileType) {
     file.background_opacity = opacity
   }
 
-  static setPadding = (padding: PaddingType[], file: FileType) => {
+  public setPadding(padding: PaddingType[], file: FileType) {
     const [x, y] = padding
 
     file.window.padding = { x: Number(x), y: Number(y) }
   }
 
-  static setFontSIze = (size: number, file: FileType) => {
+  public setFontSIze(size: number, file: FileType) {
     file.font.size = size
   }
 
-  static setFont = (font: string, file: FileType) => {
+  public setFont(font: string, file: FileType) {
     const fontProperties: FontType = file.font
 
     file.font = {
@@ -72,7 +73,7 @@ export default class File {
     }
   }
 
-  static setNewFont = (name: Array<string>) => {
+  public setNewFont(name: Array<string>) {
     const newFont = Object.fromEntries([name])
 
     const path = `${DEFAULT_SETTINGS_FOLDER}/fonts.yml`
