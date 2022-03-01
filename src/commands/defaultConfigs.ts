@@ -11,15 +11,15 @@ import {
 import { printMessage } from '../utils/message'
 
 export default class DefaultConfigs {
-  private static copyFolderRecursive = (
+  private static copyFolderRecursive(
     files: Array<string>,
     localFolder: string,
     destinationFolder: string
-  ) => {
+  ) {
     files.map(file => copyFileSync(`${localFolder}/${file}`, `${destinationFolder}/${file}`))
   }
 
-  static initialConfigs = () => {
+  static initialConfigs() {
     try {
       // criando pastas caso nao existam
       if (existsSync(BKP_FOLDER)) {

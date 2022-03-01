@@ -63,21 +63,24 @@ const InitCommands = async (args: ArgsTypes) => {
     list_themes: listThemes
   } = args
 
-  const file: FileType = File.getFile
-
-  if (listThemes) return await Themes.listThemes()
-
-  if (theme) Themes.setTheme(theme, file)
-
   if (initial) return DefaultConfigs.initialConfigs()
 
-  if (opacity) File.setOpacity(opacity, file)
-  if (padding) File.setPadding(padding, file)
-  if (size) File.setFontSIze(size, file)
-  if (font) File.setFont(font, file)
-  if (addFont) File.setNewFont(addFont)
+  if (listThemes || theme || opacity || padding || font || size || addFont) {
+    const instanceFile = new File()
+    const file = instanceFile.getFile()
 
-  File.writeFile(file)
+    if (listThemes) return await Themes.listThemes()
+
+    if (theme) Themes.setTheme(theme, file)
+
+    if (opacity) instanceFile.setOpacity(opacity, file)
+    if (padding && padding.length > 0) instanceFile.setPadding(padding, file)
+    if (size) instanceFile.setFontSIze(size, file)
+    if (font) instanceFile.setFont(font, file)
+    if (addFont && addFont.length > 0) instanceFile.setNewFont(addFont)
+
+    File.writeFile(file)
+  }
   successMessage()
 }
 
