@@ -25,7 +25,7 @@ colors:
 
 font:
   normal:
-    family: UbuntuMono Nerd Font
+    family: monospace
   size: 12
 
 window:
