@@ -36,7 +36,7 @@ export default class File {
   }
 
   public setOpacity(opacity: number, file: FileType) {
-    file.background_opacity = opacity
+    file.window.opacity = opacity
   }
 
   public setPadding(padding: PaddingType[], file: FileType) {
