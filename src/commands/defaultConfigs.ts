@@ -8,7 +8,7 @@ import {
   DEFAULT_SETTINGS_FOLDER,
   DEFAULT_THEME_FOLDER
 } from '../constants/index'
-import { printMessage } from '../utils/message'
+import { printMessage, successMessage } from '../utils/message'
 
 export default class DefaultConfigs {
   private static copyFolderRecursive(
@@ -45,6 +45,8 @@ export default class DefaultConfigs {
       this.copyFolderRecursive(themes, `${templateFoler}/themes`, `${DEFAULT_THEME_FOLDER}/`)
 
       copyFileSync(`${templateFoler}/fonts.yml`, `${DEFAULT_SETTINGS_FOLDER}/fonts.yml`)
+
+      successMessage()
     } catch (error) {
       throw new Error(error)
     }
