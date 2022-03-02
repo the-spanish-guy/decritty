@@ -35,5 +35,10 @@ window:
   dynamic_padding: true
   opacity: 1
 
+shell:
+  program: /bin/bash
+  args:
+    - --login
+
 env:
   TERM: xterm-256color
