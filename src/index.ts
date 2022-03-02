@@ -36,8 +36,8 @@ parser.add_argument('-add-font', '--add-font', {
   nargs: 2,
   metavar: ['Alias', 'Font name']
 })
-parser.add_argument('-l', '--list-themes', {
-  help: 'List all themes',
+parser.add_argument('-l', '--list-resources', {
+  help: 'List all themes and fonts',
   action: 'store_true'
 })
 
@@ -49,7 +49,7 @@ type ArgsTypes = {
   size: number
   initial: string
   add_font: Array<string>
-  list_themes: boolean
+  list_resources: boolean
 }
 const InitCommands = async (args: ArgsTypes) => {
   const {
@@ -60,16 +60,16 @@ const InitCommands = async (args: ArgsTypes) => {
     size,
     initial,
     add_font: addFont,
-    list_themes: listThemes
+    list_resources: listResources
   } = args
 
   if (initial) return DefaultConfigs.initialConfigs()
 
-  if (listThemes || theme || opacity || padding || font || size || addFont) {
+  if (listResources || theme || opacity || padding || font || size || addFont) {
     const instanceFile = new File()
     const file = instanceFile.getFile()
 
-    if (listThemes) return await Themes.listThemes()
+    if (listResources) return await Themes.listResources()
 
     if (theme) Themes.setTheme(theme, file)
 
