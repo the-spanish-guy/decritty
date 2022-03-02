@@ -5,11 +5,13 @@ type TypeColor =
   | 'blue'
   | 'cyan'
   | 'green'
-  | 'lightGreen'
-  | 'lightCyan'
+  | 'white'
+  | 'magenta'
   | 'lightRed'
   | 'lightBlue'
-  | 'magenta'
+  | 'lightCyan'
+  | 'lightGreen'
+  | 'lightWhite'
   | 'lightMagenta'
 export const printMessage = (color: TypeColor, msg: string): string | void => {
   const colors: Record<string, string> = {
@@ -17,11 +19,13 @@ export const printMessage = (color: TypeColor, msg: string): string | void => {
     blue: Color.blue,
     cyan: Color.cyan,
     green: Color.green,
+    white: Color.white,
     magenta: Color.magenta,
     lightRed: Color.lightRed,
     lightBlue: Color.lightBlue,
     lightCyan: Color.lightCyan,
     lightGreen: Color.lightGreen,
+    lightWhite: Color.lightWhite,
     lightMagenta: Color.lightMagenta
   }
 
@@ -31,5 +35,8 @@ export const printMessage = (color: TypeColor, msg: string): string | void => {
 export const successMessage = () => {
   printMessage('green', 'Done! ✨' + '\n')
 
-  printMessage('lightGreen', 'if there are no changes, try restarting the terminal' + '\n')
+  printMessage(
+    'lightGreen',
+    'if there are no changes, try restarting the terminal' + '\n'
+  )
 }

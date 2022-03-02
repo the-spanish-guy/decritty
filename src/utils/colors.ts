@@ -11,12 +11,28 @@ const getRGBColor = (red: Red, green: Green, blue: Blue) =>
 const red = getColor(31)
 const blue = getColor(34)
 const cyan = getColor(36)
+const white = getColor(37)
 const green = getColor(32)
-const magenta = getColor(95)
+const magenta = getColor(35)
+
 const lightRed = getColor(91)
-const lightBlue = getColor(96)
+const lightBlue = getColor(94)
 const lightCyan = getColor(96)
+const lightWhite = getColor(97)
 const lightGreen = getColor(92)
 const lightMagenta = getColor(95)
 
-export { red, blue, cyan, green, magenta, lightRed, lightBlue, lightCyan, lightGreen, lightMagenta }
+export {
+  red,
+  blue,
+  cyan,
+  white,
+  green,
+  magenta,
+  lightRed,
+  lightBlue,
+  lightCyan,
+  lightGreen,
+  lightWhite,
+  lightMagenta
+}
