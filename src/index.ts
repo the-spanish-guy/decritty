@@ -3,7 +3,7 @@ import { version } from '../package.json'
 import Themes from './commands/themes'
 import DefaultConfigs from './commands/defaultConfigs'
 import File from './commands/file'
-import { FileType, PaddingType } from './types/file'
+import { PaddingType } from './types/file'
 import { successMessage } from './utils/message'
 
 const parser = new ArgumentParser({

@@ -1,5 +1,11 @@
 import { join } from 'path'
-import { existsSync, renameSync, mkdirSync, copyFileSync, readdirSync } from 'fs'
+import {
+  existsSync,
+  renameSync,
+  mkdirSync,
+  copyFileSync,
+  readdirSync
+} from 'fs'
 
 import {
   BKP_FOLDER,
@@ -16,14 +22,19 @@ export default class DefaultConfigs {
     localFolder: string,
     destinationFolder: string
   ) {
-    files.map(file => copyFileSync(`${localFolder}/${file}`, `${destinationFolder}/${file}`))
+    files.map(file =>
+      copyFileSync(`${localFolder}/${file}`, `${destinationFolder}/${file}`)
+    )
   }
 
   static initialConfigs() {
     try {
       // criando pastas caso nao existam
       if (existsSync(BKP_FOLDER)) {
-        printMessage('red', `Rename the existing backup folder and try again ${'\n'}`)
+        printMessage(
+          'red',
+          `Rename the existing backup folder and try again ${'\n'}`
+        )
         return
       }
 
@@ -39,12 +50,22 @@ export default class DefaultConfigs {
 
       const templateFoler = join(__dirname, '..', 'templates')
       mkdirSync(DEFAULT_THEME_FOLDER, { recursive: true })
-      copyFileSync(`${templateFoler}/${DEFAULT_FILE}`, `${DEFAULT_FOLDER}/${DEFAULT_FILE}`)
+      copyFileSync(
+        `${templateFoler}/${DEFAULT_FILE}`,
+        `${DEFAULT_FOLDER}/${DEFAULT_FILE}`
+      )
 
       const themes = readdirSync(`${templateFoler}/themes/`)
-      this.copyFolderRecursive(themes, `${templateFoler}/themes`, `${DEFAULT_THEME_FOLDER}/`)
+      this.copyFolderRecursive(
+        themes,
+        `${templateFoler}/themes`,
+        `${DEFAULT_THEME_FOLDER}/`
+      )
 
-      copyFileSync(`${templateFoler}/fonts.yml`, `${DEFAULT_SETTINGS_FOLDER}/fonts.yml`)
+      copyFileSync(
+        `${templateFoler}/fonts.yml`,
+        `${DEFAULT_SETTINGS_FOLDER}/fonts.yml`
+      )
 
       successMessage()
     } catch (error) {

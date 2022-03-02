@@ -24,7 +24,9 @@ export default class ThemesServices {
 
   private static listFonts(): Array<string> {
     const fonts: Array<string> = []
-    const listFonts = File.openFile(`${DEFAULT_SETTINGS_FOLDER}/fonts.yml`) as FontFileType
+    const listFonts = File.openFile(
+      `${DEFAULT_SETTINGS_FOLDER}/fonts.yml`
+    ) as FontFileType
 
     for (const font in listFonts.fonts) {
       fonts.push(font)
@@ -33,7 +35,7 @@ export default class ThemesServices {
     return fonts
   }
 
-  static async listResources (): Promise<void> {
+  static async listResources(): Promise<void> {
     const themes = await this.listThemes()
     const fonts = this.listFonts()
 

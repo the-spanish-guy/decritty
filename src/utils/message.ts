@@ -35,5 +35,8 @@ export const printMessage = (color: TypeColor, msg: string): string | void => {
 export const successMessage = () => {
   printMessage('green', 'Done! ✨' + '\n')
 
-  printMessage('lightGreen', 'if there are no changes, try restarting the terminal' + '\n')
+  printMessage(
+    'lightGreen',
+    'if there are no changes, try restarting the terminal' + '\n'
+  )
 }

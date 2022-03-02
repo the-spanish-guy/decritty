@@ -1,7 +1,11 @@
 import { dump, load } from 'js-yaml'
 import { readFileSync, writeFile } from 'fs'
 import { FileType, FontType, PaddingType } from '../types/file'
-import { DEFAULT_FOLDER, DEFAULT_FILE, DEFAULT_SETTINGS_FOLDER } from '../constants/index'
+import {
+  DEFAULT_FOLDER,
+  DEFAULT_FILE,
+  DEFAULT_SETTINGS_FOLDER
+} from '../constants/index'
 import { printMessage } from '../utils/message'
 import { FontFileType } from '../types/fontFile'
 
@@ -17,7 +21,7 @@ export default class File {
     ) as FileType
   }
 
-  public static writeFile (file: any, path: string = DEFAULT_PATH) {
+  public static writeFile(file: any, path: string = DEFAULT_PATH) {
     writeFile(path, dump(file), err => {
       if (err) {
         const msg = 'an error occurred while trying to save changes'
