@@ -24,9 +24,9 @@ colors:
     white: '#e6e6e6'
 
 font:
+  size: 12
   normal:
     family: monospace
-  size: 12
 
 window:
   padding:

@@ -40,6 +40,9 @@ parser.add_argument('-l', '--list-resources', {
   help: 'List all themes and fonts',
   action: 'store_true'
 })
+parser.add_argument('-ss', '--set-shell', {
+  help: 'Set a new shell to Alacritty'
+})
 
 type ArgsTypes = {
   opacity: number
@@ -48,6 +51,7 @@ type ArgsTypes = {
   font: string
   size: number
   initial: string
+  set_shell: string
   add_font: Array<string>
   list_resources: boolean
 }
@@ -60,19 +64,20 @@ const InitCommands = async (args: ArgsTypes) => {
     size,
     initial,
     add_font: addFont,
+    set_shell: setShell,
     list_resources: listResources
   } = args
 
   if (initial) return DefaultConfigs.initialConfigs()
+  if (listResources) return await Themes.listResources()
 
-  if (listResources || theme || opacity || padding || font || size || addFont) {
+  if (theme || opacity || padding || font || size || addFont || setShell) {
     const instanceFile = new File()
     const file = instanceFile.getFile()
 
-    if (listResources) return await Themes.listResources()
-
     if (theme) Themes.setTheme(theme, file)
 
+    if (setShell) instanceFile.setShell(setShell, file)
     if (opacity) instanceFile.setOpacity(opacity, file)
     if (padding && padding.length > 0) instanceFile.setPadding(padding, file)
     if (size) instanceFile.setFontSIze(size, file)
