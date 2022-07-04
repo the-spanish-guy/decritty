@@ -15,7 +15,7 @@ export default class File {
   private fontPath: string
   private defaultPath: string
 
-  constructor () {
+  constructor() {
     this.fontPath = `${DEFAULT_SETTINGS_FOLDER}/fonts.yml`
     this.defaultPath = `${DEFAULT_FOLDER}/${DEFAULT_FILE}`
   }
@@ -96,5 +96,9 @@ export default class File {
     customFontFile.fonts = { ...customFontFile.fonts, ...newFont }
 
     File.writeFile(customFontFile, path)
+  }
+
+  public setShell(shell: string, file: FileType) {
+    file.shell = { ...file.shell, program: `/bin/${shell}` }
   }
 }
