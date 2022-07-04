@@ -4,7 +4,7 @@
 
 ![imagem](./.screenshots/argumentos.gif)
 
-> Change your alacritty config in real time!<br>
+> Change your alacritty config in real time!</br>
 
 ---
 
@@ -33,7 +33,7 @@
 
 ### Initial configs
 
-Run the command below to create the initial settings<br>
+Run the command below to create the initial settings</br>
 
 > If the alacritty folder is already exists, it will be backup and the folder structure will be set up to work correctly
 
@@ -51,22 +51,23 @@ decritty -o 0.6
 
 ### Padding
 
-This argument receives 2 parameters x, y of type int<br>
+This argument receives 2 parameters x, y of type int</br>
 X and Y need not be exactly the same
 
 ```shell
 decritty -p 2 2
-```
 
-```shell
+---
+
 decritty -p 4 8
 ```
 
 ### Font
 
-This argument receives the alias that is in the font file<br>
+This argument receives the alias that is in the font file </br>
 
-> You may be found the file on `~/.config/alacritty/settings/fonts.yml`<br> > [click here](#fonts) to see structure of `fonts` file
+> You may be found the file on `~/.config/alacritty/settings/fonts.yml` </br>
+> [click here](#fonts) to see structure of `fonts` file
 
 ```shell
 decritty -f FiraCode
@@ -74,14 +75,17 @@ decritty -f FiraCode
 
 ### Add new font
 
-This argument receives two parameters `Alias: 'Font Name'`<br>
-`Alias` is the alias of the font name <br>
-`'Font Name'` is the original font name <br>
+This argument receives two parameters `Alias: 'Font Name'`</br>
+`Alias` is the alias of the font name </br>
+`'Font Name'` is the original font name </br>
 
-> You may be found the file on `~/.config/alacritty/settings/fonts.yml`<br>
+> You may be found the file on `~/.config/alacritty/settings/fonts.yml`
 
 ```shell
-decritty -add-font FiraCode 'Fira Code Nerd Font'
+decritty --add-font FiraCode 'Fira Code Nerd Font'
+
+# abbreviated command
+decritty -af FiraCode 'Fira Code Nerd Font'
 ```
 
 ### Font Size
@@ -94,9 +98,10 @@ decritty -s 18
 
 ### Themes
 
-This argument receive the name of theme<br>
+This argument receive the name of theme</br>
 
-> You may be found the file folder on `~/.config/alacritty/settings/themes`<br> > [click here](#folder-structure) to see folder structure
+> You may be found the file folder on `~/.config/alacritty/settings/themes`</br>
+> [click here](#folder-structure) to see folder structure
 
 ```shell
 decritty -t AyuDark
@@ -121,7 +126,21 @@ decritty -t YourTheme
 To list all resources
 
 ```shell
+decritty --list-resources
+
+# abbreviated command
 decritty -l
+```
+
+### Set Shell
+
+To set a new shell
+
+```bash
+decritty --set-shell zsh
+
+## abbreviated command
+decritty -ss zsh
 ```
 
 <a id="folder-structure"></a>
@@ -147,7 +166,7 @@ alacritty
 
 ## :pencil: Fonts
 
-> `fonts.yml`
+> `~/.config/alacritty/settings/fonts.yml`
 
 ```yaml
 fonts:
