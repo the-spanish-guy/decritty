@@ -31,7 +31,7 @@ parser.add_argument('-s', '--size', {
   help: 'Set a size to family font',
   type: (n: number) => Number(n)
 })
-parser.add_argument('-add-font', '--add-font', {
+parser.add_argument('-af', '--add-font', {
   help: 'Set a new font',
   nargs: 2,
   metavar: ['Alias', 'Font name']
@@ -67,6 +67,8 @@ const InitCommands = async (args: ArgsTypes) => {
     set_shell: setShell,
     list_resources: listResources
   } = args
+
+  console.log({ args })
 
   if (initial) return DefaultConfigs.initialConfigs()
   if (listResources) return await Themes.listResources()
