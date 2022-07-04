@@ -12,9 +12,17 @@ import { FontFileType } from '../types/fontFile'
 const DEFAULT_PATH = `${DEFAULT_FOLDER}/${DEFAULT_FILE}`
 
 export default class File {
+  private fontPath: string
+  private defaultPath: string
+
+  constructor() {
+    this.fontPath = `${DEFAULT_SETTINGS_FOLDER}/fonts.yml`
+    this.defaultPath = `${DEFAULT_FOLDER}/${DEFAULT_FILE}`
+  }
+
   public getFile(): FileType {
     return load(
-      readFileSync(`${DEFAULT_FOLDER}/${DEFAULT_FILE}`, {
+      readFileSync(this.defaultPath, {
         encoding: 'utf8',
         flag: 'r'
       })
@@ -55,23 +63,25 @@ export default class File {
 
   public setFont(font: string, file: FileType) {
     const fontProperties: FontType = file.font
+    const fontFile = File.openFile(this.fontPath) as FontFileType
+    const newFont = fontFile.fonts[font]
 
     file.font = {
       ...fontProperties,
       normal: {
-        family: font,
+        family: newFont,
         style: 'Regular'
       },
       bold: {
-        family: font,
+        family: newFont,
         style: 'Bold'
       },
       italic: {
-        family: font,
+        family: newFont,
         style: 'Italic'
       },
       bold_italic: {
-        family: font,
+        family: newFont,
         style: 'Bold Italic'
       }
     }
@@ -86,5 +96,9 @@ export default class File {
     customFontFile.fonts = { ...customFontFile.fonts, ...newFont }
 
     File.writeFile(customFontFile, path)
+  }
+
+  public setShell(shell: string, file: FileType) {
+    file.shell = { ...file.shell, program: `/bin/${shell}` }
   }
 }
