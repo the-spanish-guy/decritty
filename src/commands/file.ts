@@ -1,6 +1,6 @@
 import { dump, load } from 'js-yaml'
 import { readFileSync, writeFile } from 'fs'
-import { FileType, FontType, PaddingType } from '../types/file'
+import { DecorationType, FileType, FontType, PaddingType } from '../types/file'
 import {
   DEFAULT_FOLDER,
   DEFAULT_FILE,
@@ -100,5 +100,9 @@ export default class File {
 
   public setShell(shell: string, file: FileType) {
     file.shell = { ...file.shell, program: `/bin/${shell}` }
+  }
+
+  public setWindowDecoration(decorations: DecorationType, file: FileType) {
+    file.window = { ...file.window, decorations }
   }
 }
