@@ -3,7 +3,7 @@ import { version } from '../package.json'
 import Themes from './commands/themes'
 import DefaultConfigs from './commands/defaultConfigs'
 import File from './commands/file'
-import { PaddingType } from './types/file'
+import { PaddingType, DecorationType } from './types/file'
 import { successMessage } from './utils/message'
 
 const parser = new ArgumentParser({
@@ -44,6 +44,10 @@ parser.add_argument('-ss', '--set-shell', {
   help: 'Set a new shell to Alacritty'
 })
 
+parser.add_argument('-wd', '--window-decoration', {
+  help: 'Change type decoration: "full" | "none" | "transparent" | "buttonless" '
+})
+
 type ArgsTypes = {
   opacity: number
   padding: PaddingType[]
@@ -54,6 +58,7 @@ type ArgsTypes = {
   set_shell: string
   add_font: Array<string>
   list_resources: boolean
+  window_decoration: DecorationType
 }
 const InitCommands = async (args: ArgsTypes) => {
   const {
@@ -65,20 +70,31 @@ const InitCommands = async (args: ArgsTypes) => {
     initial,
     add_font: addFont,
     set_shell: setShell,
-    list_resources: listResources
+    list_resources: listResources,
+    window_decoration: windowDecoration
   } = args
-
-  console.log({ args })
 
   if (initial) return DefaultConfigs.initialConfigs()
   if (listResources) return await Themes.listResources()
 
-  if (theme || opacity || padding || font || size || addFont || setShell) {
+  if (
+    theme ||
+    opacity ||
+    padding ||
+    font ||
+    size ||
+    addFont ||
+    setShell ||
+    windowDecoration
+  ) {
     const instanceFile = new File()
     const file = instanceFile.getFile()
 
     if (theme) Themes.setTheme(theme, file)
 
+    if (windowDecoration) {
+      instanceFile.setWindowDecoration(windowDecoration, file)
+    }
     if (setShell) instanceFile.setShell(setShell, file)
     if (opacity) instanceFile.setOpacity(opacity, file)
     if (padding && padding.length > 0) instanceFile.setPadding(padding, file)

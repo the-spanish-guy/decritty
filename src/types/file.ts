@@ -15,7 +15,7 @@ type AxesType = {
 export type PositionType = AxesType
 export type PaddingType = AxesType
 
-type DecorationType = 'full' | 'none' | 'transparent' | 'buttonless'
+export type DecorationType = 'full' | 'none' | 'transparent' | 'buttonless'
 type StartupType = 'Windowed' | 'Maximized' | 'Fullscreen' | 'SimpleFullscreen'
 
 type GtkThemeVariant = 'None' | 'light' | 'dark'
