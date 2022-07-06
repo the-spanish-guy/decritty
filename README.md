@@ -143,6 +143,19 @@ decritty --set-shell zsh
 decritty -ss zsh
 ```
 
+### Window Decoration
+
+To change window decoration of Alacritty </br>
+> You can set these options "full" | "none" | "transparent" | "buttonless" </br>
+> Remember, the options "transparent" | "buttonless" only works in macos
+
+```bash
+decritty --window-decoration full
+
+## abbreviated command
+decritty -wd none
+```
+
 <a id="folder-structure"></a>
 
 ## :file_folder: Folder Structure
